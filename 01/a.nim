@@ -1,4 +1,5 @@
 import std / [strutils, sequtils, sugar]
+import parsecli
 
 type
   Direction = enum
@@ -32,9 +33,8 @@ proc countZeros(rots: Rotations): Natural =
       result.inc
 
 proc main() =
-  let rots =
-    #"example".readRotations
-    "input".readRotations
+  let input = getInputFile()
+  let rots = input.readRotations
 
   echo rots.countZeros
 

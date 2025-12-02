@@ -1,4 +1,5 @@
 import std / [strutils]
+import parsecli
 
 type
   Direction = enum
@@ -33,9 +34,8 @@ proc rotateCountingZeros(rots: Rotations; numbers = range[0..99]): Natural =
     pos = nextPos mod modulus
 
 proc main() =
-  let rots =
-    #"example".readRotations
-    "input".readRotations
+  let input = getInputFile()
+  let rots = input.readRotations
 
   echo rots.rotateCountingZeros
 
